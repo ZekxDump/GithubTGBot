@@ -1,6 +1,5 @@
 import asyncio
 import logging
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from html import escape
 from sys import getsizeof
 import hypercorn.asyncio
