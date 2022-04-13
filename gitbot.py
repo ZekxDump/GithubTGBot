@@ -94,24 +94,21 @@ async def ghoo_k(chat):
     if data.get("issue"):
         if data.get("comment"):
             issue_comment = f"""
-**💬 New Comment :** `{data['repository']['name']}`
-`{data['comment']['body']}`
-[#{data['issue']['number']}]({data['comment']['html_url']})
+💬 New comment: <b>{escape(data['repository']['name'])}</b>
+{escape(data['comment']['body'])}
+<a href='{data['comment']['html_url']}'>Issue #{data['issue']['number']}</a>
 """
-            await msg_.edit(issue_comment, disable_web_page_preview=True)
+            await msg_.edit(issue_comment,  parse_mode="html", disable_web_page_preview=True)
         else:
-            issue_c = f"""
-**⚠️ New {data['action']} Issue :** `{data['repository']['name']}`
-Title : {data['issue']['title']}
-{data['issue']['body'] or "No Description"}
-[{data['issue']['number']}]({data['issue']['html_url']})"""
-            await msg_.edit(issue_c, disable_web_page_preview=True)
+            issue_c = f"""🚨 New {data['action']} issue for <b>{escape(data['repository']['name'])}</b>
+<b>{escape(data['issue']['title'])}</b>
+{escape(data['issue']['body'])}
+<a href='{data['issue']['html_url']}'>issue #{data['issue']['number']}</a>
+"""
+            await msg_.edit(issue_c, parse_mode="html", disable_web_page_preview=True)
         return "ok"
     if data.get("forkee"):
-        fork_ = f"""
-🍴 {data['forkee']['svn_url']} Forked {data['repository']['html_url']}
-Total forks count: __{data['repository']['forks_count']} ⚡️__
-"""
+        fork_ = f"🍴 <a href='{data['sender']['html_url']}'>{data['sender']['login']}</a> forked <a href='{data['repository']['html_url']}'>{data['repository']['name']}</a>!\nTotal forks now are {data['repository']['forks_count']}"
         await msg_.edit(fork_, disable_web_page_preview=True)
         return "ok"
     if data.get("ref_type"):
