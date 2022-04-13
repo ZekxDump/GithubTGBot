@@ -1,0 +1,34 @@
+{
+  "name": "GitHunTGBot - Pyrogram",
+  "description": "A GitAlertBot in Pyrogram.",
+  "keywords": [
+    "productivity",
+    "python",
+    "github"
+  ],
+  "repository": "https://github.com/ZekXtreme/GithubTGBot",
+  "logo": "https://telegra.ph//file/5b8af3f478367355593cf.jpg",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Bot Token. From @BotFather.",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Your APi Hash From Telegram",
+      "value": ""
+    },
+    "API_ID": {
+      "description": "Your Api ID From Telegram.",
+      "value": "5"
+    },
+    "OWNER_ID": {
+      "description": "Your Owner ID",
+      "value": ""
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

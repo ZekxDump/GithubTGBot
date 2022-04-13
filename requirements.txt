@@ -1,0 +1,6 @@
+quart
+tgcrypto
+python-dotenv
+hypercorn
+pyrogram
+
